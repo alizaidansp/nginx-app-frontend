@@ -1,19 +1,29 @@
 <script>
+
+import { register } from '../../../services/api/auth';
+import { goto } from '$app/navigation';
     let email = '';
     let password = '';
     let username = '';
   
-    function handleLogin() {
-      console.log('Email:', email, 'Password:', password);
-      // Add actual login logic (e.g., API call) here
-    }
+    async function handleRegister() {
+  try {
+    const response = await register(username,email, password);
+    console.log('Login Successful:', response);
+    goto('/user/dashboard'); // Redirect to dashboard on success
+  } catch (err) {
+    console.error('Login Error:', err);
+    // Ensure 'err' is treated as an object with a 'message' property
+    // error = err instanceof Error ? err.message : 'Login failed. Please try again.';
+  }
+}
   </script>
   
   <div class="min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-900 to-gray-800">
     <div class="backdrop-blur-xl bg-white/10 border border-white/20 rounded-2xl p-8 max-w-sm w-full shadow-lg">
       <h1 class="text-3xl font-semibold text-white mb-6 text-center">We are happy you want to join us</h1>
   
-      <form on:submit|preventDefault={handleLogin} class="space-y-4">
+      <form on:submit|preventDefault={handleRegister} class="space-y-4">
        
          <!-- Username Input -->
          <div>

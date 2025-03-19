@@ -30,6 +30,8 @@ export async function login(email, password) {
 	return response; // Contains access_token and user info
 }
 
+
+
 /**
  * User Logout - Clears the stored token
  */
