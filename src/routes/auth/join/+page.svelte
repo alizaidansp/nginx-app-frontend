@@ -69,7 +69,7 @@ import { goto } from '$app/navigation';
           type="submit"
           class="w-full p-3 mt-4 bg-blue-600 hover:bg-blue-500 text-white rounded-lg transition duration-300"
         >
-          Log In
+          Register!
         </button>
       </form>
   
